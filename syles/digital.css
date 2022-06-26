@@ -45,9 +45,24 @@ button.arrow {
     white-space:nowrap;
 }
 
+/* -------- ФОН ---------*/
+
+body {
+    background-image: url("../images/Ellipse1.jpg"), url("../images/Ellipse2.jpg");
+    background-repeat: no-repeat;
+    background-size: 764px 661px, 547px 1091px;
+    background-position: 0 0, right 1230px;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        background-position: 0 0, right 1700px;
+    }
+}
+
 /*----------------ОБЩИЙ ВРАППЕР-----------------------*/
 
-.page-wrapper {
+.page-wrapper, footer .columns {
     margin: 0 auto;
     max-width: 1400px;
     min-width: 360px;
@@ -56,14 +71,14 @@ button.arrow {
 }
 
 @media screen and (max-width: 1090px) {
-    .page-wrapper {
+    .page-wrapper, footer .columns {
         padding-left: 50px;
         padding-right: 50px;
     }
 }
 
 @media screen and (max-width: 850px) {
-    .page-wrapper {
+    .page-wrapper, footer .columns{
         padding-left: 25px;
         padding-right: 25px;
     }
@@ -127,6 +142,7 @@ nav .burger {
 }
 
 .intro .content {
+    width: 55%;
     padding-top: 40px;
     padding-right: 75px;
 }
@@ -149,22 +165,24 @@ nav .burger {
     color: #272D38;
 }
 
+.intro .image {
+    width: 45%;
+}
 .intro img {
-    width: 450px;
+    max-width: 450px;
+    width: 100%;
     height: auto;
 }
 
 @media screen and (max-width: 1050px) {
-    .intro img {
-        width: 380px;
-    }
+
     .intro h1 {
         font-size: 40px;
     }
 
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 600px) {
     .intro {
         flex-direction: column;
         text-align: center;
@@ -173,27 +191,25 @@ nav .burger {
     .intro .content {
         padding-right: 0;
         padding-top: 0;
+        width: auto;
     }
     .intro .image {
         margin-top: 50px;
+        width: auto;
     }
 
 }
 
-@media screen and (max-width: 430px) {
-     .intro img {
-         width: 310px;
-     }
-}
 
 /*          COMPANIES TRUSTED BY 4000+ BRANDS               **********************/
 
 .companies {
     display: flex;
     margin: 0 auto;
+    margin-right: 75px;
+    margin-left: 75px;
     flex-direction: column;
     margin-top: 150px;
-    width: 915px;
 }
 
 .companies p {
@@ -207,11 +223,16 @@ nav .burger {
 }
 .companies ul {
     display: flex;
-    gap: 115px;
+    gap: 30px;
+    justify-content: space-between;
     margin-top: 15px;
     padding: 24px 24px;
     background: #F6F6F6;
     border-radius: 8px;
+}
+
+.companies img {
+    width: 100%;
 }
 
 /*      ЧУВАКИ С КАРАНДАШОМ НА ПЛЕЧЕ           ************/
@@ -221,16 +242,31 @@ nav .burger {
     justify-content: space-between;
     margin-top: 135px;
 }
+.branding .image {
+    width: 55%;
+}
+
+.branding.right .image {
+    text-align: right;
+}
 
 .branding img {
-    width: 450px;
-    height: auto;
+    max-width: 450px;
+    width: 100%;
 }
 
 .branding .content {
     padding-top: 100px;
-    padding-left: 180px;
-    text-align: left;
+    width: 45%;
+}
+
+
+.branding.left .content  {
+    padding-left: 30px;
+}
+
+.branding.right .content  {
+    padding-right: 30px;
 }
 
 .branding h1 {
@@ -243,7 +279,6 @@ nav .burger {
 
 .branding p {
     margin-top: 25px;
-    padding-right: 176px;
     margin-bottom: 45px;
     font-weight: 400;
     font-size: 16px;
@@ -252,41 +287,46 @@ nav .burger {
     color: #272D38;
 }
 
-/*-----------ЧУВАК С ТАБЛИЦЕЙ---------------*/
+@media screen and (max-width: 1050px) {
 
-.custome {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 135px;
+    .content h1 {
+        font-size: 40px;
+    }
+
 }
 
-.custome .content {
-    text-align: left;
-    padding-top: 100px;
-    padding-right: 180px;
-}
-.custome img {
-    width: 450px;
-    height: auto;
-}
+@media screen and (max-width: 600px) {
+    .branding {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 95px;
+    }
+    .branding.left {
+        flex-direction: column-reverse;
+    }
 
-.custome h1 {
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 100%;
-    text-transform: capitalize;
-    color: #272D38;
-}
+    .branding.left .content  {
+        padding-left: 0;
+    }
 
-.custome p {
-    padding-right: 176px;
-    margin-top: 45px;
-    margin-bottom: 25px;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 28px;
-    text-transform: capitalize;
-    color: #272D38;
+    .branding.right .content  {
+        padding-right: 0;
+    }
+
+    .branding .content {
+        padding-right: 0;
+        padding-top: 0;
+
+        width: auto;
+    }
+
+    .branding .image {
+        margin-top: 50px;
+        width: auto;
+    }
+    .branding .arrow {
+        transform: rotate(90deg);
+    }
 }
 
 /*-------------------ТРИ В РЯД КАРТОЧКИ С ЛИЦАМИ --------------------*/
@@ -307,10 +347,9 @@ nav .burger {
 
 .testimonials h1 {
     margin: 0 auto;
-    margin-right: 350px;
-    margin-left: 350px;
     margin-top: 15px;
     margin-bottom: 40px;
+    max-width: 450px;
     font-weight: 700;
     font-size: 48px;
     line-height: 100%;
@@ -324,18 +363,14 @@ nav .burger {
     column-gap: 15px;
 }
 
-.testimonials .cards .card {
+.testimonials .card {
     width: 33.3%;
     text-align: center;
     padding: 32px;
     background: #F6F6F6;
     border-radius: 20px;
-    /*margin-right: 15px;   !* добавил вместо space-between *!*/
 }
 
-.margin-null {
-    margin-right: 0;
-}
 
 .testimonials .cards img {
     width: 130px;
@@ -363,6 +398,25 @@ nav .burger {
     color: #272D38;
 }
 
+@media screen and (max-width: 1050px) {
+
+    .testimonials h1 {
+        font-size: 40px;
+    }
+
+}
+
+@media screen and (max-width: 660px) {
+
+    .testimonials .cards {
+        flex-direction: column;
+        row-gap: 40px;
+    }
+    .testimonials .card {
+        width: auto;
+    }
+}
+
 /*-------------ДЭВЮЮЮЩЩЩКА ЗА КОМПОМ В НАУШНИКАХ---OUTRO-----------*/
 
 .outro {
@@ -376,15 +430,16 @@ nav .burger {
 }
 
 .outro .image {
+    width: 45%;
     margin-right: 90px;
 }
 .outro .image img {
-    width: 450px;
+    width: 100%;
     height: auto;
-    background: #F6F6F6;
 }
 
 .outro .content {
+    width: 55%;
     padding-top: 100px;
     padding-right: 90px;
     padding-bottom: 100px;
@@ -395,8 +450,7 @@ nav .burger {
     font-size: 48px;
     line-height: 100%;
     color: #272D38;
-    text-align: left;
-    padding-right: 106px;
+    padding-right: 30px;
 
 }
 
@@ -407,25 +461,55 @@ nav .burger {
     font-size: 16px;
     line-height: 28px;
     color: #272D38;
-    text-align: left;
-    padding-right: 136px;
+    padding-right: 30px;
 }
 
 .outro .content button {
     filter: none;
 }
 
+@media screen and (max-width: 1050px) {
+
+    .outro .content {
+        padding-right: 15px;
+    }
+
+    .outro .content h1 {
+        font-size: 40px;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .outro {
+        text-align: center;
+        padding: 55px 35px 45px 35px;
+        display: block;
+        margin-bottom: 130px;
+    }
+    .outro .content {
+        width: auto;
+        padding: 0;
+    }
+    .outro .image {
+        display: none;
+    }
+    .outro .content p {
+        padding-right: 0;
+        text-align: center;
+    }
+    .outro .content h1 {
+        padding-right: 0;
+        text-align: center;
+    }
+
+}
+
 /*-------------FOOTERRRRR-------------*/
 
 footer {
-    display: flex;
-    max-width: 1440px;
-    min-width: 360px;
-    margin: 0 auto;
-    flex-direction: column;
     margin-top: 150px;
-    margin-bottom: 50px;
-    padding: 105px 185px 20px 185px;
+    padding: 105px 0 50px 0;
     background-color: #F6F6F6;
 }
 
@@ -433,7 +517,7 @@ footer {
 footer .columns {
     display: flex;
     justify-content: space-between;
-    gap: 180px;
+    gap: 30px;
     background: #F6F6F6;
     border-radius: 8px;
 }
@@ -455,6 +539,7 @@ footer .columns {
     text-transform: capitalize;
     color: #272D38;
 }
+
 footer p {
     display: flex;
     margin-top: 110px;
@@ -463,4 +548,24 @@ footer p {
     font-size: 16px;
     line-height: 100%;
     color: #272D38;
+}
+
+.columns .description {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    text-transform: capitalize;
+    color: #272D38;
+}
+
+@media screen and (max-width: 600px) {
+    .columns {
+        flex-direction: column;
+        text-align: center;
+    }
+    footer p {
+        padding: 25px 25px;
+        text-align: center;
+        min-width: 360px;
+    }
 }
